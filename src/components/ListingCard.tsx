@@ -1,6 +1,7 @@
 'use client';
 
 import type { Listing } from '@/types';
+import Image from 'next/image';
 
 interface ListingCardProps {
   listing: Listing;
@@ -17,10 +18,11 @@ export default function ListingCard({ listing }: ListingCardProps) {
       {/* Image */}
       <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
         {listing.image ? (
-          <img
+          <Image
             src={listing.image}
             alt={listing.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
@@ -40,7 +42,7 @@ export default function ListingCard({ listing }: ListingCardProps) {
           </div>
         )}
         {/* Price Badge */}
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3 z-10">
           {listing.price === null ? (
             <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-bold bg-green-500 text-white shadow-md">
               FREE

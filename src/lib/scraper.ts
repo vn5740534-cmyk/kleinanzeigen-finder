@@ -57,6 +57,7 @@ export class KleinanzeigenScraper {
     return null;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private parseListing($: cheerio.CheerioAPI, element: any, baseUrl: string): Listing | null {
     try {
       const $el = $(element);
